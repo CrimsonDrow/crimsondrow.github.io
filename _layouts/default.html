@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if page.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0b0906;
+      --bg-panel:  #120f0a;
+      --bg-card:   #1a1510;
+      --gold:      #c0392b;
+      --gold-dim:  #7a1a10;
+      --crimson:   #8b1a2a;
+      --text:      #ddd0b8;
+      --text-dim:  #8a7d68;
+      --border:    #2e2518;
+      --border-hi: #4a3a20;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        repeating-linear-gradient(0deg,   transparent, transparent 40px, rgba(255,255,255,.012) 40px, rgba(255,255,255,.012) 41px),
+        repeating-linear-gradient(90deg,  transparent, transparent 40px, rgba(255,255,255,.012) 40px, rgba(255,255,255,.012) 41px);
+      color: var(--text);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border-hi);
+      text-align: center;
+      padding: 2.5rem 1.5rem 2rem;
+      position: relative;
+    }
+    header::before, header::after {
+      content: '';
+      display: block;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+    }
+    header::before { margin-bottom: 2rem; }
+    header::after  { margin-top:    2rem; }
+
+    .site-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.4rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .05em;
+      text-decoration: none;
+      text-shadow: 0 0 40px rgba(201,160,71,.25);
+      display: inline-block;
+    }
+    .site-title:hover { color: #e0b84a; }
+
+    .site-tagline {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: .95rem;
+      color: var(--text-dim);
+      margin-top: .4rem;
+      letter-spacing: .08em;
+    }
+
+    /* ── ORNAMENT ── */
+    .ornament {
+      display: block;
+      text-align: center;
+      color: var(--gold-dim);
+      font-size: 1.1rem;
+      letter-spacing: .6em;
+      margin: .6rem 0;
+      user-select: none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+    nav a {
+      font-family: 'Cinzel', serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      padding: .4rem 1.4rem;
+      border: 1px solid transparent;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    nav a:hover {
+      color: var(--gold);
+      border-color: var(--border-hi);
+      background: rgba(201,160,71,.06);
+    }
+    nav a + a { border-left-color: var(--border); }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* ── PAGE TITLE ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .page-header::after {
+      content: '✦ ✦ ✦';
+      display: block;
+      color: var(--gold-dim);
+      font-size: .75rem;
+      letter-spacing: .5em;
+      margin-top: 1.2rem;
+    }
+
+    /* ── CONTENT TYPOGRAPHY ── */
+    h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--gold);
+      line-height: 1.25;
+      text-shadow: 0 0 30px rgba(201,160,71,.2);
+    }
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--gold);
+      letter-spacing: .06em;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: #b8945a;
+      letter-spacing: .06em;
+      margin: 2rem 0 .6rem;
+    }
+
+    p { margin: 0 0 1.2rem; }
+
+    a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
+    a:hover { color: #e0b84a; border-bottom-color: #e0b84a; }
+
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: .88em;
+      background: rgba(201,160,71,.08);
+      border: 1px solid var(--border-hi);
+      color: #d4af6a;
+      padding: .1em .45em;
+      border-radius: 2px;
+    }
+
+    blockquote {
+      border-left: 3px solid var(--gold-dim);
+      margin: 1.5rem 0;
+      padding: .8rem 1.4rem;
+      background: var(--bg-card);
+      font-style: italic;
+      color: var(--text-dim);
+    }
+
+    hr {
+      border: none;
+      text-align: center;
+      margin: 2.5rem 0;
+      color: var(--gold-dim);
+      letter-spacing: .6em;
+      font-size: .85rem;
+    }
+    hr::before { content: '— ✦ —'; }
+
+    ul, ol {
+      padding-left: 1.4rem;
+      margin: 0 0 1.2rem;
+    }
+    li { margin-bottom: .3rem; }
+    li::marker { color: var(--gold-dim); }
+
+    /* ── TABLE (for commands) ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 2rem;
+      font-size: .95rem;
+    }
+    thead th {
+      font-family: 'Cinzel', serif;
+      font-size: .75rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--bg-panel);
+      border: 1px solid var(--border-hi);
+      padding: .7rem 1rem;
+      text-align: left;
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+    }
+    tbody tr:hover { background: rgba(201,160,71,.04); }
+    tbody td {
+      padding: .65rem 1rem;
+      border-left: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tbody td:first-child { border-left: none; }
+    tbody td code {
+      font-size: .85rem;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border-hi);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: .82rem;
+      color: var(--text-dim);
+      font-style: italic;
+      letter-spacing: .04em;
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      margin-bottom: 1.5rem;
+    }
+    footer a { color: var(--gold-dim); border-bottom: none; }
+    footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="{{ site.baseurl }}/" class="site-title">{{ site.title }}</a>
+    <p class="site-tagline">{{ site.description }}</p>
+    <span class="ornament">⸻ ✦ ⸻</span>
+    <nav>
+      <a href="{{ site.baseurl }}/">Home</a>
+      <a href="{{ site.baseurl }}/commands">Commands</a>
+    </nav>
+  </header>
+
+  <main class="wrapper">
+    <div class="page-header">
+      <h1>{{ page.title }}</h1>
+    </div>
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>⸻ ✦ ⸻</p>
+    <p>{{ site.title }} &nbsp;·&nbsp; Forged with <a href="https://pages.github.com">GitHub Pages</a></p>
+  </footer>
+
+</body>
+</html>
