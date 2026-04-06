@@ -1,4 +1,7 @@
-title: "Obsidian Forest Stream Commands"
+title: "Your Stream Commands"
 description: "A grimoire of commands for the realm of chat"
 baseurl: ""
 url: ""
+markdown: kramdown
+kramdown:
+  input: GFM

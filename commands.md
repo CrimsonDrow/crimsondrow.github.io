@@ -6,6 +6,7 @@ title: Commands
 # Chat Commands
 
 ## Streamer.bot Commands
+
 | Command | Description | Usage |
 |---|---| --- |
 | `!discord` | Drops the link to the Discord server | T,Y |
