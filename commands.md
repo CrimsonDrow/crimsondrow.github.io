@@ -7,7 +7,7 @@ title: Commands
 
 ## Streamer.bot Commands
 | Command | Description | Usage |
-|---|---|
+|---|---| --- |
 | `!discord` | Drops the link to the Discord server |
 | `!socials` | Lists all social media links |
 | `!schedule` | Shows the streaming schedule |
