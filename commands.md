@@ -8,9 +8,9 @@ title: Commands
 ## Streamer.bot Commands
 | Command | Description | Usage |
 |---|---| --- |
-| `!discord` | Drops the link to the Discord server |
-| `!socials` | Lists all social media links |
-| `!schedule` | Shows the streaming schedule |
+| `!discord` | Drops the link to the Discord server | T,Y |
+| `!socials` | Lists all social media links | T,Y |
+| `!schedule` | Shows the streaming schedule | T,Y |
 | `!coins` | Shows number of coins you have | T |
 | `!done` | Solo Grandmaster Dungeons: Beneath the Necropolis - Attempt 32 | T |
 ! `!drops`,`!emblem` | New Destiny 2 Emblem for watching a meer 60 minutes of this terrible gameplay. Get yourself "Stream of Consciousness" Emblem from March 26th through the April 14th! https://destinyemblemcollector.com/emblem?id=215338188 | T |
