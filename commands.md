@@ -25,3 +25,4 @@ title: Commands
 | `!thoughts` | Crimson's thoughts on the Final Shape Campaign: 9/10 great story to end on and close out the Light and Dark story line. Beautiful enviroment design as well. He's played Destiny for such a long time, it's good to finally see the end of this story. I don't want it to be the last story, I just hope they continue good storytelling while balancing quality builds. | T |
 | `!variety` | Do you like variety??? Crimson's variety games are Satisfactory, Diablo IV, Halo Infinite, Arc Raiders and Portal 2. | T |
 | `!marker` | Creates a stream marker with any text after marker. | T |
+| `!sr` | Requests a song to be played on Twitch | T |
